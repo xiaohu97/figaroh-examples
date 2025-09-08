@@ -15,7 +15,7 @@ if parent_dir not in sys.path:
 from matplotlib import pyplot as plt
 from figaroh.tools.robot import load_robot
 from examples.tiago.utils.simplified_colission_model import build_tiago_simplified
-from examples.tiago.tiago_tools import OptimalTrajectoryIPOPT
+from examples.tiago.utils.tiago_tools import OptimalTrajectoryIPOPT
 
 
 def plot_condition_number_evolution(results):
@@ -50,7 +50,7 @@ def main():
         load_by_urdf=True,
         robot_pkg="tiago_description",
     )
-    
+
     # Define active joints for trajectory optimization
     active_joints = [
         "torso_lift_joint",
@@ -62,23 +62,23 @@ def main():
         "arm_6_joint",
         "arm_7_joint",
     ]
-    
+
     # Build simplified collision model
     robot = build_tiago_simplified(robot)
-    
+
     # Create trajectory optimizer
     config_file = "config/tiago_config.yaml"
     opt_traj = OptimalTrajectoryIPOPT(robot, active_joints, config_file)
-    
+
     # Run trajectory optimization
     results = opt_traj.solve(stack_reps=2)
-    
+
     # Plot results
     if results['T_F']:
         opt_traj.plot_results()
         plot_condition_number_evolution(results)
         print(f"Generated {len(results['T_F'])} trajectory segments")
-    
+
     return results
 
 
