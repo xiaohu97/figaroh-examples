@@ -232,7 +232,7 @@ subject to:
 ### Required Packages
 ```bash
 # Core scientific computing
-pip install numpy scipy matplotlib pandas pyyaml
+pip install numpy scipy matplotlib pandas
 
 # Optimization libraries
 pip install picos cvxpy cyipopt

@@ -234,10 +234,10 @@ subject to:
 ```bash
 # Core dependencies
 pip install numpy scipy matplotlib picos cvxopt
-pip install pandas pyyaml numdifftools cyipopt
+pip install pandas numdifftools cyipopt
 
 # Robotics libraries
-pip install pinocchio robotics-toolbox-python
+pip install pinocchio
 ```
 
 ### FIGAROH Framework
