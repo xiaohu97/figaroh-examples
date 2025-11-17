@@ -15,7 +15,7 @@ if parent_dir not in sys.path:
 from matplotlib import pyplot as plt
 from figaroh.tools.robot import load_robot
 from examples.tiago.utils.simplified_colission_model import build_tiago_simplified
-from examples.tiago.tiago_tools import OptimalTrajectoryIPOPT
+from examples.tiago.utils.tiago_tools import OptimalTrajectoryIPOPT
 
 
 def plot_condition_number_evolution(results):
